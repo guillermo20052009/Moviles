@@ -1,5 +1,6 @@
 package com.example.holamundo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -20,5 +21,12 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Intent ejemplo = new Intent(this, Activity2.class);
+        startActivity(ejemplo);
     }
 }
