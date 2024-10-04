@@ -48,8 +48,8 @@ public class Activity2 extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i("EJEMPLO", "Estoy en onDestroy");
-
+        Intent ejemplo = new Intent(this, MainActivity.class);
+        startActivity(ejemplo);
     }
 
 }
