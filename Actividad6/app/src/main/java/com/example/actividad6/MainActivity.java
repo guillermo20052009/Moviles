@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void intentPasandoDatos(View view){
-        String name = "JAVIIIIIIIII";
+        String name = "Jose";
         double num = 19;
         Intent ejemplo = new Intent(this, Activity2.class);
         ejemplo.putExtra("nombre", name);
