@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.holamundo.app-mergeDebugResources-29:/values-small-v4/values-small-v4.xml",
+            "outputFile": "com.example.propuesta4_2.app-mergeDebugResources-29:/values-small-v4/values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-4\\a45ddd8da72f3751a942950333ddd51b\\transformed\\material-1.12.0\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "/home/usuario/.gradle/caches/8.9/transforms/3242aefac33c4a31fc1c19e0bf13b5ca/transformed/material-1.10.0/res/values-small-v4/values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

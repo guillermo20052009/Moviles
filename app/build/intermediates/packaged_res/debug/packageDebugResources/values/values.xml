@@ -2,10 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="app_name">HolaMundo</string>
-    <style name="Base.Theme.HolaMundo" parent="Theme.Material3.DayNight.NoActionBar">
+    <string name="app_name">Propuesta4_2</string>
+    <style name="Base.Theme.Propuesta4_2" parent="Theme.Material3.DayNight.NoActionBar">
         
         
     </style>
-    <style name="Theme.HolaMundo" parent="Base.Theme.HolaMundo"/>
+    <style name="Theme.Propuesta4_2" parent="Base.Theme.Propuesta4_2"/>
 </resources>
