@@ -11,8 +11,8 @@
         android:layout_width="409dp"
         android:layout_height="729dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="-45dp"
-        tools:layout_editor_absoluteY="16dp">
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
         <FrameLayout
             android:layout_width="105dp"
@@ -23,7 +23,7 @@
         </FrameLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="419dp"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
@@ -36,12 +36,21 @@
             </FrameLayout>
 
             <FrameLayout
-                android:layout_width="149dp"
+                android:layout_width="107dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="bottom|right"
+                android:layout_gravity="left|bottom"
+                android:background="#FFFFFF">
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left|bottom"
                 android:background="#FF0000">
 
             </FrameLayout>
+
         </LinearLayout>
 
     </LinearLayout>
