@@ -19,7 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Propuesta4_2"
-include(":app")
+rootProject.name = "Prupuesta4_4"
 include(":app")
  
