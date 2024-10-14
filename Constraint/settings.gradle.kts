@@ -19,7 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Propuesta4_2"
+rootProject.name = "Constraint"
 include(":app")
-include(":app")
-include(":app")
+ 
