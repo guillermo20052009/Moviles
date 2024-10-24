@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- TextView para mostrar el resultado o la entrada -->
+
+    <TextView
+        android:id="@+id/salida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEEEEE"
+        android:gravity="end"
+        android:padding="10dp"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        android:hint="@string/Defecto"
+        style="@style/MyVisorStyle"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F5F5F5"
+        android:columnCount="4"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+
+        <Button
+            android:id="@+id/btnDivision"
+            android:layout_column="3"
+            android:layout_gravity="fill"
+            android:text="/"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:backgroundTint="#FF9800"
+            style="@style/MyMaterialButtonStyle" />
+
+
+        <Button
+            android:id="@+id/btn1"
+            android:text="1"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#E0E0E0"
+            style="@style/MyMaterialButtonStyleBis"/>
+
+        <Button
+            android:id="@+id/btn2"
+            android:text="2"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#E0E0E0"
+            style="@style/MyMaterialButtonStyleBis"/>
+
+        <Button
+            android:id="@+id/btn3"
+            android:text="3"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#E0E0E0"
+            style="@style/MyMaterialButtonStyleBis"/>
+
+        <Button
+            android:id="@+id/btnMultiplicacion"
+            android:text="*"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:backgroundTint="#FF9800"
+            style="@style/MyMaterialButtonStyle"/>
+
+        <Button
+            android:id="@+id/btn4"
+            android:text="4"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#E0E0E0"
+            style="@style/MyMaterialButtonStyleBis"/>
+
+        <Button
+            android:id="@+id/btn5"
+            android:text="5"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#E0E0E0"
+            style="@style/MyMaterialButtonStyleBis"/>
+
+        <Button
+            android:id="@+id/btn6"
+            android:text="6"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#E0E0E0"
+            style="@style/MyMaterialButtonStyleBis"/>
+
+        <Button
+            android:id="@+id/btnResta"
+            android:text="-"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:backgroundTint="#FF9800"
+            style="@style/MyMaterialButtonStyle"/>
+
+        <Button
+            android:id="@+id/btn7"
+            android:text="7"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#E0E0E0"
+            style="@style/MyMaterialButtonStyleBis"/>
+
+        <Button
+            android:id="@+id/btn8"
+            android:text="8"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#E0E0E0"
+            style="@style/MyMaterialButtonStyleBis"/>
+
+        <Button
+            android:id="@+id/btn9"
+            android:text="9"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#E0E0E0"
+            style="@style/MyMaterialButtonStyleBis"/>
+
+        <Button
+            android:id="@+id/btnSuma"
+            android:layout_rowSpan="3"
+            android:layout_gravity="fill_vertical"
+            android:text="+"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:backgroundTint="#FF9800"
+            style="@style/MyMaterialButtonStyle"/>
+
+        <!-- Botones de abajo -->
+        <Button
+            android:id="@+id/btn0"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill_horizontal"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#E0E0E0"
+            style="@style/MyMaterialButtonStyleBis"/>
+
+        <Button
+            android:id="@+id/btn00"
+            android:text="00"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#E0E0E0"
+            style="@style/MyMaterialButtonStyle"/>
+
+        <Button
+            android:id="@+id/btnIgual"
+            android:layout_columnSpan="3"
+            android:layout_gravity="fill_horizontal"
+            android:text="="
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:backgroundTint="#4CAF50"
+            style="@style/MyMaterialButtonStyle"/>
+
+        <Button
+            android:id="@+id/btnPotencia"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:text="^"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:backgroundTint="#FF9800"
+            style="@style/MyMaterialButtonStyle"/>
+
+        <Button
+            android:id="@+id/btnborrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:text="del"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:backgroundTint="#FF9800"
+            style="@style/MyMaterialButtonStyle"/>
+
+        <Button
+            android:id="@+id/btnpunto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:text="."
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:backgroundTint="#FF9800"
+            style="@style/MyMaterialButtonStyle"/>
+
+    </GridLayout>
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyMaterialButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">#FF0000</item>
+        <item name="android:icon">@drawable/ic_launcher_foreground</item>
+        <item name="android:shape">rectangle</item>
+    </style>
+    <style name="MyMaterialButtonStyleBis" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">#ED9F9F</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+    <style name="MyVisorStyle" parent="Widget.MaterialComponents.Button">
+    </style>
+</resources>
