@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:id="@+id/main">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona un día de la semana"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroupDays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <RadioButton
+            android:id="@+id/radioMonday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lunes" />
+
+        <RadioButton
+            android:id="@+id/radioTuesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Martes" />
+
+        <RadioButton
+            android:id="@+id/radioWednesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Miércoles" />
+
+        <RadioButton
+            android:id="@+id/radioThursday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jueves" />
+
+        <RadioButton
+            android:id="@+id/radioFriday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Viernes" />
+
+        <RadioButton
+            android:id="@+id/radioSaturday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sábado" />
+
+        <RadioButton
+            android:id="@+id/radioSunday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Domingo" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textViewSelectedDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Día seleccionado: "
+        android:textSize="16sp"/>
+</LinearLayout>
