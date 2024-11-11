@@ -1,37 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#282828"
     android:id="@+id/main">
 
-    <!-- Fila 1 -->
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:columnCount="5"
+        android:rowCount="5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- 25 TextViews en la cuadrícula 5x5 -->
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text=""  android:textSize="50sp" android:textColor="@color/white" />
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+        <TextView android:layout_width="70dp" android:layout_height="90dp" android:layout_margin="4dp" android:background="@drawable/border" android:gravity="center" android:text="" android:textSize="50sp"/>
+    </GridLayout>
+
+    <!-- Fila de botones QWERTY -->
     <LinearLayout
         android:id="@+id/row1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="10"
-        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:background="#333333"
         app:layout_constraintBottom_toTopOf="@id/row2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <Button android:layout_weight="1" android:text="Q" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="W" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="E" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="R" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="T" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="Y" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="U" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="I" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="O" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="P" style="@style/KeyboardButton"/>
+        <!-- Botones de la fila QWERTY -->
+        <Button android:id="@+id/Q" android:layout_weight="1" android:text="Q" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/W" android:layout_weight="1" android:text="W" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/E" android:layout_weight="1" android:text="E" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/R" android:layout_weight="1" android:text="R" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/T" android:layout_weight="1" android:text="T" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/Y" android:layout_weight="1" android:text="Y" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/U" android:layout_weight="1" android:text="U" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/I" android:layout_weight="1" android:text="I" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/O" android:layout_weight="1" android:text="O" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/P" android:layout_weight="1" android:text="P" style="@style/KeyboardButton"/>
     </LinearLayout>
 
     <!-- Fila 2 -->
@@ -48,16 +90,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <Button android:layout_weight="1" android:text="A" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="S" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="D" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="F" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="G" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="H" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="J" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="K" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="L" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="Ñ" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/A" android:layout_weight="1" android:text="A" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/S" android:layout_weight="1" android:text="S" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/D" android:layout_weight="1" android:text="D" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/F" android:layout_weight="1" android:text="F" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/G" android:layout_weight="1" android:text="G" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/H" android:layout_weight="1" android:text="H" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/J" android:layout_weight="1" android:text="J" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/K" android:layout_weight="1" android:text="K" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/L" android:layout_weight="1" android:text="L" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/Ñ" android:layout_weight="1" android:text="Ñ" style="@style/KeyboardButton"/>
     </LinearLayout>
 
     <!-- Fila 3 -->
@@ -74,15 +116,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <Button android:layout_weight="3" android:text="Enviar" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="Z" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="X" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="C" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="V" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="B" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="N" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="M" style="@style/KeyboardButton"/>
-        <Button android:layout_weight="1" android:text="⌫" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/ENV" android:layout_weight="3" android:text="Enviar" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/Z" android:layout_weight="1" android:text="Z" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/X" android:layout_weight="1" android:text="X" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/C" android:layout_weight="1" android:text="C" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/V" android:layout_weight="1" android:text="V" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/B" android:layout_weight="1" android:text="B" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/N" android:layout_weight="1" android:text="N" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/M" android:layout_weight="1" android:text="M" style="@style/KeyboardButton"/>
+        <Button android:id="@+id/BOR" android:layout_weight="1" android:text="⌫" style="@style/KeyboardButton"/>
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
