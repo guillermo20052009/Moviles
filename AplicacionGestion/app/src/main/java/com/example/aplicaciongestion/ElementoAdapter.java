@@ -31,10 +31,9 @@ public class ElementoAdapter extends RecyclerView.Adapter<ElementoAdapter.Elemen
         Elemento elemento = elementos.get(position);
         holder.imageView.setImageResource(elemento.getImagenResId());
         holder.titleTextView.setText(elemento.getTitulo());
-        holder.contentTextView.setText(elemento.getContenido());
+        holder.descriptionTextView.setText(elemento.getDescripcion()); // Ahora se usa descripcion
         holder.ratingBar.setRating(elemento.getPuntuacion());
-        holder.webTextView.setText(elemento.getWeb());
-        holder.phoneTextView.setText(elemento.getTelefono());
+        holder.fechaEntregaTextView.setText(elemento.getFechaEntrega()); // Aquí se usa fecha de entrega
     }
 
     @Override
@@ -45,19 +44,17 @@ public class ElementoAdapter extends RecyclerView.Adapter<ElementoAdapter.Elemen
     static class ElementoViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView titleTextView;
-        TextView contentTextView;
+        TextView descriptionTextView;  // Cambiado a descriptionTextView
         RatingBar ratingBar;
-        TextView webTextView;
-        TextView phoneTextView;
+        TextView fechaEntregaTextView; // Cambiado de webTextView a fechaEntregaTextView
 
         public ElementoViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
             titleTextView = itemView.findViewById(R.id.hola);
-            contentTextView = itemView.findViewById(R.id.contentTextView);
+            descriptionTextView = itemView.findViewById(R.id.descriptionTextView); // Asegúrate de que el layout tenga este ID
             ratingBar = itemView.findViewById(R.id.ratingBar);
-            webTextView = itemView.findViewById(R.id.webTextView);
-            phoneTextView = itemView.findViewById(R.id.phoneTextView);
+            fechaEntregaTextView = itemView.findViewById(R.id.fechaEntregaTextView); // Asegúrate de que el layout tenga este ID
         }
     }
 }

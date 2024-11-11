@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Crea una lista de elementos de ejemplo
         List<Elemento> elementos = new ArrayList<>();
-        elementos.add(new Elemento(R.drawable.pablo, "Título 1", "Contenido 1", 4.5f, "www.example.com", "+1 234 567 890"));
-        elementos.add(new Elemento(R.drawable.pablo, "Título 2", "Contenido 2", 3.0f, "www.example.com", "+1 987 654 321"));
+        elementos.add(new Elemento(R.drawable.acceso, "Acceso a datos", "Tarea MongoDB", 4.5f, "14/11/24"));
+        elementos.add(new Elemento(R.drawable.android, "Moviles", "Aplicacion de gestion", 3.0f, "15/11/24"));
         // Añade más elementos según sea necesario
 
         // Configura el adapter

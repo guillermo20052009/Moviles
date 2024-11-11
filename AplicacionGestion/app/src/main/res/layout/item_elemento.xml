@@ -25,12 +25,12 @@
         android:textSize="18sp"
         android:layout_marginTop="8dp" />
 
-    <!-- Contenido -->
+    <!-- Descripción -->
     <TextView
-        android:id="@+id/contentTextView"
+        android:id="@+id/descriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contenido del elemento"
+        android:text="Descripción breve del elemento"
         android:textSize="14sp"
         android:layout_marginTop="4dp" />
 
@@ -43,20 +43,13 @@
         android:stepSize="0.5"
         android:layout_marginTop="4dp" />
 
-    <!-- Dirección web -->
+    <!-- Fecha de entrega -->
     <TextView
-        android:id="@+id/webTextView"
+        android:id="@+id/fechaEntregaTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="www.example.com"
-        android:textColor="@android:color/holo_blue_dark"
-        android:layout_marginTop="4dp" />
-
-    <!-- Teléfono -->
-    <TextView
-        android:id="@+id/phoneTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+1 234 567 890"
+        android:text="Fecha de entrega"
+        android:textSize="14sp"
         android:layout_marginTop="4dp" />
 </LinearLayout>
+

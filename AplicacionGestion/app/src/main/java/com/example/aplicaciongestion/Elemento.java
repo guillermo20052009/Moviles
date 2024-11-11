@@ -1,27 +1,38 @@
 package com.example.aplicaciongestion;
 
-public class Elemento {
-    private int imagenResId;
-    private String titulo;
-    private String contenido;
-    private float puntuacion;
-    private String web;
-    private String telefono;
+import java.util.Date;
 
-    public Elemento(int imagenResId, String titulo, String contenido, float puntuacion, String web, String telefono) {
+public class Elemento {
+    private int imagenResId;        // ID del recurso de imagen
+    private String titulo;           // Título del elemento
+    private String descripcion;      // Breve descripción del elemento
+    private float puntuacion;        // Valor de la puntuación (de 0 a 5)
+    private String fechaEntrega;       // Fecha de entrega del elemento
+
+    // Constructor
+    public Elemento(int imagenResId, String titulo, String descripcion, float puntuacion, String fechaEntrega) {
         this.imagenResId = imagenResId;
         this.titulo = titulo;
-        this.contenido = contenido;
+        this.descripcion = descripcion;
         this.puntuacion = puntuacion;
-        this.web = web;
-        this.telefono = telefono;
+        this.fechaEntrega = fechaEntrega;
     }
 
     // Getters
     public int getImagenResId() { return imagenResId; }
     public String getTitulo() { return titulo; }
-    public String getContenido() { return contenido; }
+    public String getDescripcion() { return descripcion; }
     public float getPuntuacion() { return puntuacion; }
-    public String getWeb() { return web; }
-    public String getTelefono() { return telefono; }
+    public String getFechaEntrega() { return fechaEntrega; }
+
+    @Override
+    public String toString() {
+        return "Elemento{" +
+                "imagenResId=" + imagenResId +
+                ", titulo='" + titulo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", puntuacion=" + puntuacion +
+                ", fechaEntrega=" + fechaEntrega +
+                '}';
+    }
 }
