@@ -61,6 +61,8 @@ public class principla extends AppCompatActivity {
         userDatabase.put("user8", "password8");
         userDatabase.put("user9", "password9");
         userDatabase.put("user10", "password10");
+        userDatabase.put("a", "a");
+
     }
 
     // Verificar si las credenciales son válidas

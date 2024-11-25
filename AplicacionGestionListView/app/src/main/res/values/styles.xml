@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MiMenuStyle" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <item name="android:textColor">#FFFFFF</item> <!-- Color del texto -->
+        <item name="android:itemBackground">#102340</item> <!-- Color de fondo -->
+    </style>
+</resources>

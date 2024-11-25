@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#BAD4E0">
+    android:background="#B3CFDE">
 
     <!-- Espacio superior para empujar los elementos hacia abajo -->
     <View
