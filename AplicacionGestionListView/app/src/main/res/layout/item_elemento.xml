@@ -12,7 +12,8 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:scaleType="centerInside"/>
+        android:scaleType="centerInside"
+        android:focusable="false"/>
 
     <TextView
         android:id="@+id/titulo"
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         android:text="Título"
         android:textSize="18sp"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp"
+        android:focusable="false"/>
 
     <TextView
         android:id="@+id/descripcion"
@@ -28,7 +30,8 @@
         android:layout_height="wrap_content"
         android:text="Descripción"
         android:textSize="14sp"
-        android:layout_marginTop="4dp"/>
+        android:layout_marginTop="4dp"
+        android:focusable="false"/>
 
     <TextView
         android:id="@+id/fecha"
@@ -36,7 +39,8 @@
         android:layout_height="wrap_content"
         android:text="Fecha"
         android:textSize="12sp"
-        android:layout_marginTop="4dp"/>
+        android:layout_marginTop="4dp"
+        android:focusable="false"/>
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -44,5 +48,6 @@
         android:layout_height="wrap_content"
         android:numStars="5"
         android:rating="0"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp"
+        android:isIndicator="true"/>
 </LinearLayout>
