@@ -3,6 +3,7 @@ package com.example.aplicaciongestionlistview;
 import java.util.Date;
 
 public class Elemento {
+    private int id;
     private int imagenResId;        // ID del recurso de imagen
     private String titulo;           // Título del elemento
     private String descripcion;      // Breve descripción del elemento
@@ -17,8 +18,25 @@ public class Elemento {
         this.puntuacion = puntuacion;
         this.fechaEntrega = fechaEntrega;
     }
+    public Elemento(int id,int imagenResId, String titulo, String descripcion, float puntuacion, String fechaEntrega) {
+        this.id=id;
+        this.imagenResId = imagenResId;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.puntuacion = puntuacion;
+        this.fechaEntrega = fechaEntrega;
+    }
 
     // Getters
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getImagenResId() { return imagenResId; }
     public String getTitulo() { return titulo; }
     public String getDescripcion() { return descripcion; }

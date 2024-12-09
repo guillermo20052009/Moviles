@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setSupportActionBar(findViewById(R.id.toolbar));
 
         dbHelper = new sqlBDD(this);
 
@@ -113,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
             Elemento nuevoElemento = new Elemento(R.drawable.android, titulo, descripcion, puntuacion, fechaEntrega);
             dbHelper.addElemento(nuevoElemento); // Guardar en la base de datos
+            nuevoElemento.setId(dbHelper.getLastId());
             elementos.add(nuevoElemento); // Actualizar la lista en memoria
             adapter.notifyDataSetChanged();
             Toast.makeText(this, "Elemento añadido con éxito.", Toast.LENGTH_SHORT).show();
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void deleteElemento(int position) {
         Elemento elemento = elementos.get(position);
-        dbHelper.deleteElemento(position + 1); // Suponiendo que el ID es la posición + 1
+        dbHelper.deleteElemento(elemento.getId()); // Suponiendo que el ID es la posición + 1
         elementos.remove(position);
         adapter.notifyDataSetChanged();
     }

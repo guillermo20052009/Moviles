@@ -15,5 +15,12 @@
                 android:title="Por rating" />
         </menu>
     </item>
+    <item
+        android:id="@+id/action_add"
+        android:title="añadir"
+        app:showAsAction="never">
+
+    </item>
+
 
 </menu>

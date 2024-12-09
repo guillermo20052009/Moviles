@@ -11,8 +11,8 @@ import java.util.List;
 
 public class sqlBDD extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "elementos.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "elementos2.db";
+    private static final int DATABASE_VERSION = 2;
 
     // Tabla y columnas
     private static final String TABLE_ELEMENTOS = "elementos";
@@ -66,6 +66,7 @@ public class sqlBDD extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Elemento elemento = new Elemento(
+                        cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID)),
                         R.drawable.android, // Placeholder para la imagen
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITULO)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPCION)),
@@ -85,5 +86,30 @@ public class sqlBDD extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_ELEMENTOS, COLUMN_ID + "=?", new String[]{String.valueOf(id)});
         db.close();
+    }
+    // Obtener el último ID de la tabla
+    public int getLastId() {
+        int lastId = -1; // Valor por defecto si no se encuentra ningún registro
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+
+        try {
+            // Consulta para obtener el máximo ID
+            String query = "SELECT MAX(" + COLUMN_ID + ") AS lastId FROM " + TABLE_ELEMENTOS;
+            cursor = db.rawQuery(query, null);
+
+            if (cursor != null && cursor.moveToFirst()) {
+                lastId = cursor.getInt(cursor.getColumnIndexOrThrow("lastId"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+
+        return lastId;
     }
 }
