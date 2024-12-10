@@ -78,7 +78,32 @@
             android:clickable="true"
             android:textColorHint="@android:color/darker_gray" />
 
-        <!-- Botón para guardar -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selecciona una foto"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <ImageView
+            android:id="@+id/imageViewSeleccionFoto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:background="?attr/selectableItemBackground"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="Foto del usuario"
+            android:padding="8dp"/>
+
+        <Button
+            android:id="@+id/btnSeleccionarFoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar Foto"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"/>
+
         <Button
             android:id="@+id/btnGuardar"
             android:layout_width="wrap_content"

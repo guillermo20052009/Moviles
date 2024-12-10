@@ -2,7 +2,10 @@ package com.example.aplicaciongestionlistview;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -13,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.util.Calendar;
 
@@ -22,12 +27,25 @@ public class FormularioActivity extends AppCompatActivity {
     private TextView etFechaEntrega;
     private SeekBar sbPuntuacion;
     private Button btnGuardar;
+    private static final int REQUEST_CODE_SELECCIONAR_FOTO = 2;
+    private ImageView imageViewSeleccionFoto;
+    private Uri fotoSeleccionadaUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nuevo);
 
+
+        imageViewSeleccionFoto = findViewById(R.id.imageViewSeleccionFoto);
+        Button btnSeleccionarFoto = findViewById(R.id.btnSeleccionarFoto);
+
+        btnSeleccionarFoto.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivityForResult(intent, REQUEST_CODE_SELECCIONAR_FOTO);
+            }
+        });
         // Referenciar los elementos de la interfaz
         etTitulo = findViewById(R.id.etTitulo);
         etDescripcion = findViewById(R.id.etDescripcion);
@@ -97,5 +115,18 @@ public class FormularioActivity extends AppCompatActivity {
         customToast.setDuration(Toast.LENGTH_SHORT);
         customToast.setView(toastView);
         customToast.show();
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE_SELECCIONAR_FOTO && resultCode == RESULT_OK && data != null) {
+            fotoSeleccionadaUri = data.getData(); // Obtener la URI de la foto seleccionada
+
+            if (fotoSeleccionadaUri != null) {
+                imageViewSeleccionFoto.setImageURI(fotoSeleccionadaUri); // Mostrar la foto seleccionada en el ImageView
+            } else {
+                Toast.makeText(this, "No se pudo seleccionar la foto", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

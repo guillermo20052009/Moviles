@@ -21,17 +21,18 @@ public class MainActivity extends AppCompatActivity {
     private List<Elemento> elementos; // Lista de elementos
     private ElementoAdapter adapter; // Adaptador del ListView
     private sqlBDD dbHelper;
+    private int idUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        idUsuario = getIntent().getIntExtra("id_usuario", -1);
         dbHelper = new sqlBDD(this);
 
         // Obtener los datos de la base de datos
-        elementos = dbHelper.getAllElementos();
+        elementos = dbHelper.getAllElementos(idUsuario);
 
         adapter = new ElementoAdapter(this, elementos);
         ListView listView = findViewById(R.id.listView);
@@ -111,8 +112,8 @@ public class MainActivity extends AppCompatActivity {
             int puntuacion = data.getIntExtra("puntuacion", 0);
 
             Elemento nuevoElemento = new Elemento(R.drawable.android, titulo, descripcion, puntuacion, fechaEntrega);
-            dbHelper.addElemento(nuevoElemento); // Guardar en la base de datos
-            nuevoElemento.setId(dbHelper.getLastId());
+            dbHelper.addElemento(nuevoElemento,idUsuario); // Guardar en la base de datos
+            nuevoElemento.setId(dbHelper.getLastIdElemento());
             elementos.add(nuevoElemento); // Actualizar la lista en memoria
             adapter.notifyDataSetChanged();
             Toast.makeText(this, "Elemento añadido con éxito.", Toast.LENGTH_SHORT).show();

@@ -9,64 +9,72 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class principla extends AppCompatActivity {
-    private HashMap<String, String> userDatabase;
+
+    sqlBDD dbHelper = new sqlBDD(this);
+    private static final int REQUEST_CODE_NUEVO_USUARIO = 1;
+    ArrayList<Usuario> usuarios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.principal);
 
-        // Inicializamos el HashMap con los usuarios y contraseñas
-        userDatabase = new HashMap<>();
-        populateUserDatabase();
+        usuarios=dbHelper.getAllUsuarios();
 
         EditText editTextUsername = findViewById(R.id.editTextUsername);
         EditText editTextPassword = findViewById(R.id.editTextPassword);
         Button buttonLogin = findViewById(R.id.buttonLogin);
+        Button buttonAnadir = findViewById(R.id.buttonanadir);
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username = editTextUsername.getText().toString();
-                String password = editTextPassword.getText().toString();
+        buttonLogin.setOnClickListener(v -> {
+            String username = editTextUsername.getText().toString();
+            String password = editTextPassword.getText().toString();
 
-                if (isValidUser(username, password)) {
-                    // Intent para abrir otra aplicación
-                    Intent launchIntent = new Intent(principla.this, MainActivity.class);
-                    if (launchIntent != null) {
-                        startActivity(launchIntent);
-                    } else {
-                        Toast.makeText(principla.this, "No se encontró la aplicación a abrir", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    // Mostrar un Toast si las credenciales son incorrectas
-                    Toast.makeText(principla.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-                }
+            if (isValidUser(username, password) != -1) {
+                // Usuario válido, pasar el ID al MainActivity
+                Intent launchIntent = new Intent(principla.this, MainActivity.class);
+                launchIntent.putExtra("id_usuario", isValidUser(username, password)); // Pasamos el ID
+                startActivity(launchIntent);
+            } else {
+                Toast.makeText(principla.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        buttonAnadir.setOnClickListener(v -> {
+            Intent launchIntent = new Intent(principla.this, NuevoUsuario.class);
+            startActivityForResult(launchIntent, REQUEST_CODE_NUEVO_USUARIO);
+        });
+    }
+    private int isValidUser(String username, String password) {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getNombre().equals(username) && usuario.getContraseña().equals(password)) {
+                return usuario.getId(); // Usuario válido
+            }
+        }
+        return -1; // Usuario no encontrado
     }
 
-    // Método para inicializar el HashMap con 10 ejemplos
-    private void populateUserDatabase() {
-        userDatabase.put("user1", "password1");
-        userDatabase.put("user2", "password2");
-        userDatabase.put("user3", "password3");
-        userDatabase.put("user4", "password4");
-        userDatabase.put("user5", "password5");
-        userDatabase.put("user6", "password6");
-        userDatabase.put("user7", "password7");
-        userDatabase.put("user8", "password8");
-        userDatabase.put("user9", "password9");
-        userDatabase.put("user10", "password10");
-        userDatabase.put("a", "a");
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-    }
+        if (requestCode == REQUEST_CODE_NUEVO_USUARIO && resultCode == RESULT_OK && data != null) {
+            // Obtener datos del nuevo usuario
+            String nuevoNombre = data.getStringExtra("nombre");
+            String nuevaContraseña = data.getStringExtra("contraseña");
 
-    // Verificar si las credenciales son válidas
-    private boolean isValidUser(String username, String password) {
-        return userDatabase.containsKey(username) && userDatabase.get(username).equals(password);
+            if (nuevoNombre != null && nuevaContraseña != null) {
+                Usuario usuario= new Usuario(nuevoNombre,nuevaContraseña);
+                dbHelper.addUsuario(usuario);
+                usuario.setId(dbHelper.getLastIdUsuario());
+                usuarios.add(usuario);
+                Toast.makeText(this, "Usuario añadido: " + nuevoNombre, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
