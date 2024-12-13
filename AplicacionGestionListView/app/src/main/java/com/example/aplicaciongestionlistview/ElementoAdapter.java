@@ -1,6 +1,7 @@
 package com.example.aplicaciongestionlistview;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.BaseAdapter;
 
 import com.example.aplicaciongestionlistview.Elemento;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -58,7 +60,8 @@ public class ElementoAdapter extends BaseAdapter {
         RatingBar ratingBar = convertView.findViewById(R.id.ratingBar);
 
         // Establecer los valores
-        imagen.setImageResource(elemento.getImagenResId());
+
+        Picasso.get().load(elemento.getUriImagen()).into(imagen);
         titulo.setText(elemento.getTitulo());
         descripcion.setText(elemento.getDescripcion());
         fecha.setText(elemento.getFechaEntrega());

@@ -11,8 +11,8 @@ import java.util.List;
 
 public class sqlBDD extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "elementos4.db";
-    private static final int DATABASE_VERSION = 4;
+    private static final String DATABASE_NAME = "elementos6.db";
+    private static final int DATABASE_VERSION = 6;
 
     // Tabla y columnas
     private static final String TABLE_ELEMENTOS = "elementos";
@@ -26,6 +26,7 @@ public class sqlBDD extends SQLiteOpenHelper {
     private static final String COLUMN_ID_USUARIO = "id_usuario";
     private static final String COLUMN_NOMBRE_USUARIO = "nombre_usuario";
     private static final String COLUMN_CONTRASENA = "contrasena";
+    private static final String COLUMN_URL = "url";
 
     public sqlBDD(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -40,7 +41,8 @@ public class sqlBDD extends SQLiteOpenHelper {
                 + COLUMN_DESCRIPCION + " TEXT, "
                 + COLUMN_PUNTUACION + " REAL, "
                 + COLUMN_FECHA_ENTREGA + " TEXT, "
-                + COLUMN_ID_USUARIO + " INTEGER)";
+                + COLUMN_ID_USUARIO + " INTEGER, "
+                + COLUMN_URL + " TEXT)";
         db.execSQL(CREATE_TABLE);
         String CREATE_TABLE2 = "CREATE TABLE " + TABLE_USUARIOS + "("
                 + COLUMN_ID_USUARIO + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -57,18 +59,39 @@ public class sqlBDD extends SQLiteOpenHelper {
     }
 
     // Insertar un nuevo elemento
-    public long addElemento(Elemento elemento,int id_usuario) {
+    public long addElemento(Elemento elemento, int id_usuario) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+
+        // Guardar los campos en ContentValues
         values.put(COLUMN_TITULO, elemento.getTitulo());
         values.put(COLUMN_DESCRIPCION, elemento.getDescripcion());
         values.put(COLUMN_PUNTUACION, elemento.getPuntuacion());
         values.put(COLUMN_FECHA_ENTREGA, elemento.getFechaEntrega());
-        values.put(COLUMN_ID_USUARIO,id_usuario);
+        values.put(COLUMN_ID_USUARIO, id_usuario);
+        values.put(COLUMN_URL, elemento.getUriImagen()); // Guardar la URL desde el objeto Elemento
+
+        // Insertar los datos en la tabla
         long id = db.insert(TABLE_ELEMENTOS, null, values);
         db.close();
-        return id;
+        return id; // Devuelve el ID de la fila insertada
     }
+    public void updateElemento(Elemento elemento) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // Llenar los valores a actualizar
+        values.put(COLUMN_TITULO, elemento.getTitulo());
+        values.put(COLUMN_DESCRIPCION, elemento.getDescripcion());
+        values.put(COLUMN_PUNTUACION, elemento.getPuntuacion());
+        values.put(COLUMN_FECHA_ENTREGA, elemento.getFechaEntrega());
+        values.put(COLUMN_URL, elemento.getUriImagen());
+
+        // Actualizar el elemento en la base de datos
+        db.update(TABLE_ELEMENTOS, values, COLUMN_ID + " = ?", new String[]{String.valueOf(elemento.getId())});
+        db.close();
+    }
+
 
     // Obtener todos los elementos
     public List<Elemento> getAllElementos(int idUsuario) {
@@ -83,7 +106,7 @@ public class sqlBDD extends SQLiteOpenHelper {
             do {
                 Elemento elemento = new Elemento(
                         cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID)),
-                        R.drawable.android, // Placeholder para la imagen
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_URL)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITULO)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPCION)),
                         cursor.getFloat(cursor.getColumnIndexOrThrow(COLUMN_PUNTUACION)),

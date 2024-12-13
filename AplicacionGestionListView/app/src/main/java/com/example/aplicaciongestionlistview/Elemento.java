@@ -8,19 +8,22 @@ public class Elemento {
     private String titulo;           // Título del elemento
     private String descripcion;      // Breve descripción del elemento
     private float puntuacion;        // Valor de la puntuación (de 0 a 5)
-    private String fechaEntrega;       // Fecha de entrega del elemento
+    private String fechaEntrega;
+    private String uriImagen; // Fecha de entrega del elemento
 
     // Constructor
-    public Elemento(int imagenResId, String titulo, String descripcion, float puntuacion, String fechaEntrega) {
-        this.imagenResId = imagenResId;
+
+    public Elemento(int id,String uriImagen, String titulo, String descripcion, float puntuacion, String fechaEntrega) {
+        this.id=id;
+        this.uriImagen=uriImagen;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.puntuacion = puntuacion;
         this.fechaEntrega = fechaEntrega;
     }
-    public Elemento(int id,int imagenResId, String titulo, String descripcion, float puntuacion, String fechaEntrega) {
+    public Elemento(String imagen, String titulo, String descripcion, float puntuacion, String fechaEntrega) {
         this.id=id;
-        this.imagenResId = imagenResId;
+        this.uriImagen=imagen;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.puntuacion = puntuacion;
@@ -39,9 +42,38 @@ public class Elemento {
 
     public int getImagenResId() { return imagenResId; }
     public String getTitulo() { return titulo; }
+
+    public void setFechaEntrega(String fechaEntrega) {
+        this.fechaEntrega = fechaEntrega;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setPuntuacion(float puntuacion) {
+        this.puntuacion = puntuacion;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setUriImagen(String uriImagen) {
+        this.uriImagen = uriImagen;
+    }
+
     public String getDescripcion() { return descripcion; }
     public float getPuntuacion() { return puntuacion; }
     public String getFechaEntrega() { return fechaEntrega; }
+
+    public String getUriImagen() {
+        return uriImagen;
+    }
+
+    public void setImagenResId(int imagenResId) {
+        this.imagenResId = imagenResId;
+    }
 
     @Override
     public String toString() {
